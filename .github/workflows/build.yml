@@ -9,7 +9,7 @@ jobs:
     container: zephyrprojectrtos/ci:v0.18.4
     strategy:
       matrix:
-        sample: [MCP2515_Test]
+        sample: [MP2515_Test]
         target: [nrf52833dk_nrf52833]
     steps:
       - name: Checkout
