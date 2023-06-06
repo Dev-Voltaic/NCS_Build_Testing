@@ -9,8 +9,8 @@ jobs:
     container: zephyrprojectrtos/ci:v0.18.4
     strategy:
       matrix:
-        sample: [blinky]
-        target: [nrf52833dk_nrf52833]
+        sample: [MP2515_Test]
+        target: [can_test]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
