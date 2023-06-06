@@ -9,7 +9,7 @@ jobs:
     container: zephyrprojectrtos/ci:v0.26.4
     strategy:
       matrix:
-        sample: [MP2515_Test]
+        sample: [CAN_Build_Test]
         target: [can_test]
     steps:
       - name: Checkout
