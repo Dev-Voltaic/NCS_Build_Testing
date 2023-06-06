@@ -9,8 +9,8 @@ jobs:
     container: zephyrprojectrtos/ci:v0.18.4
     strategy:
       matrix:
-        sample: [battery, blinky]
-        target: [circuitdojo_feather_nrf9160_ns]
+        sample: [blinky]
+        target: [nrf52833dk_nrf52833]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
