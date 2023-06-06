@@ -24,14 +24,26 @@ jobs:
         run: |
              echo "::set-output name=branch::${GITHUB_REF#refs/*/}"
              echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+             
+      - name: Cache West
+        id: cache-west
+        uses: actions/cache@v2
+        with:
+          path: ~/.west
+          key: west
 
       - name: Initialize
         working-directory: nfed
+        if: steps.cache-west.outputs.cache-hit != 'true'
         run: |
           pip3 install -U west
           west init -l .
           west update
           pip3 install -r ../zephyr/scripts/requirements-base.txt
+          
+      - name: Add West to $PATH
+        run: |
+          echo "$HOME/.west/bin" >> $GITHUB_PATH
 
       - name: Build ${{ matrix.sample }} for ${{ matrix.target }}
         working-directory: nfed
