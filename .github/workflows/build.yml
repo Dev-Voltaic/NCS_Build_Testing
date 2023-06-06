@@ -6,11 +6,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: zephyrprojectrtos/ci:v0.26.4
+    container: zephyrprojectrtos/ci:v0.18.4
     strategy:
       matrix:
-        sample: [CAN_Build_Test]
-        target: [can_test]
+        sample: [blinky]
+        target: [nrf52833dk_nrf52833]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
