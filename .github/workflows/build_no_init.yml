@@ -1,4 +1,4 @@
-name: Build
+name: Build_No_Init
 
 on:
   workflow_dispatch:
