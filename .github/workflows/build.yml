@@ -9,7 +9,7 @@ jobs:
     container: zephyrprojectrtos/ci:v0.18.4
     strategy:
       matrix:
-        sample: [coutner]
+        sample: [counter]
         target: [can_test2]
     steps:
       - name: Checkout
