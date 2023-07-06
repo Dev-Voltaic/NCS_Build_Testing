@@ -1,0 +1,7 @@
+- Reference: https://github.com/NordicPlayground/nrf-docker
+- Open powershell
+- cd to sample you want to build
+- Make sure the container with the name "nrfconnect-sdk" doesn't exist already
+- docker run -it --name nrfconnect-sdk -v ${PWD}:/workdir/project nrfconnect-sdk /bin/bash
+(- west build -p always -b nrf52833dk_nrf52833)
+- west build -p always -b can_test2
