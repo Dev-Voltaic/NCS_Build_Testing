@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    container: zephyrprojectrtos/ci:v0.18.4
+    container: nrfconnect-sdk
     strategy:
       matrix:
         sample: [counter]
@@ -24,14 +24,6 @@ jobs:
         run: |
              echo "::set-output name=branch::${GITHUB_REF#refs/*/}"
              echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-
-      - name: Initialize
-        working-directory: nfed
-        run: |
-          pip3 install -U west
-          west init -l .
-          west update
-          pip3 install -r ../zephyr/scripts/requirements-base.txt
 
       - name: Build ${{ matrix.sample }} for ${{ matrix.target }}
         working-directory: nfed
